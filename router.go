@@ -482,5 +482,5 @@ func buildChain(f http.HandlerFunc, m ...Middleware) http.HandlerFunc {
 		return f
 	}
 	// otherwise nest the handlerfuncs
-	return m[0](buildChain(f, m[1:cap(m)]...))
+	return m[0](buildChain(f, m[1:len(m)]...))
 }
